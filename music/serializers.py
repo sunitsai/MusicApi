@@ -17,5 +17,6 @@ class PodcastSerializer(serializers.ModelSerializer):
 
 
 class AudioBookSerializer(serializers.ModelSerializer):
-    model = AudioBook
-    fields = '__all__'
+    class Meta:
+        model = AudioBook
+        fields = '__all__'
