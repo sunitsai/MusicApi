@@ -65,7 +65,7 @@ class AudioView(APIView):
             return Response(serializer.errors, status=400)
 
         serializer.save()
-        return Response(serializer.data, status=201)
+        return Response(serializer.data)
 
     def get(self, request, audioFileType, audioFileID=None):
         self.file_type = audioFileType
@@ -96,7 +96,7 @@ class AudioView(APIView):
         obj = self.get_serializer(request_type="delete", pk=audioFileID)
         try:
             obj.delete()
-            return Response(status=204)
+            return Response()
         except:
             return Response(obj.errors, status=400)
 
